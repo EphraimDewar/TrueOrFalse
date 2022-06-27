@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>True or False Game</title>
+</head>
+<body>
+    <h1>True or False</h1>
+    <p>Select T or F to decide whether the statement is True or False</p>
+<br>
+    <div id="container">
+        <p id="questions"> Select T or F to start</p>
+    </div>
+    <hr>
+    <div id="scores">
+        <p id="wins-text"> Wins: 0</p>
+    </div>
+
+    <script>
+
+
+        var QuestionAnswer = [ {q : "5 is greater than 3", a: true},
+    {q : "Bananas are radioactive", a: true},
+    {q : "More than half of your body is bacteria", a: true},
+    {q : "Tomatoes have more genes than humans", a: true},
+    {q : "The letter 'J' does not appear on the Periodic Table of Elements", a : true},
+    {q : "There is something faster than light", a: false},
+    {q : "Cold water freezes faster than warm water", a: false},
+    {q : "You can burp in space", a: false},
+    {q : "All of the states of matter for oxygen is colorless", a: false},
+    {q : "Ice is more dense than water", a: false},
+    {q : "Well done, you have completed all fo the questions!", a: false}
+    ]
+    var questions = document.getElementById("questions")
+    var winsText = document.getElementById("wins-text");
+    
+    var index = 0
+
+    var wins = 0
+     
+
+
+    document.onkeyup = function(event) {
+            
+            console.log(event.key)
+
+            var userAnswer = event.key;
+
+  if ((userAnswer === "t") || (userAnswer === "f")) {
+   
+    var question = QuestionAnswer[index].q
+
+    questions.textContent = question
+
+    if (userAnswer === QuestionAnswer[index].a){
+        
+        winsText.textContent = "Wins: " + wins++;
+    }
+        index++
+  
+  }
+  else {
+    alert("Invalid input. Please select the T or F keys.")
+  }
+    }
+    </script>
+</body>
+</html>
